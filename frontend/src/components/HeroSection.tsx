@@ -112,12 +112,12 @@ function HeroSection() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,137,0.18),transparent_30%)]" />
         </div>
 
-        <div className="relative z-10 flex min-h-screen items-start px-6 pb-12 pt-6">
+        <div className="relative z-10 flex min-h-screen items-center px-6 pb-12 pt-6">
           <div className="max-w-sm text-white">
             <div className="inline-flex rounded-full border border-white/30 bg-white/12 px-4 py-1.5 text-sm font-semibold text-white shadow-sm backdrop-blur-md">
               Powering The Future
             </div>
-            <h1 className="mt-6 max-w-xs text-4xl font-bold leading-tight tracking-tight">
+            <h1 className="mt-6 max-w-xs text-5xl font-bold leading-tight tracking-tight">
               Sustainable Energy Solutions
             </h1>
             <p className="mt-4 text-base leading-relaxed text-slate-100">
