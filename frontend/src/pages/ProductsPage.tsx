@@ -94,7 +94,7 @@ function ProductsPage() {
                     <span className="h-2.5 w-2.5 rounded-full bg-primary" />
                     Product catalog
                   </div>
-                  <h1 className="mt-6 max-w-3xl text-5xl font-bold tracking-tight text-slate-950 md:text-6xl">
+                  <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl md:text-6xl">
                     A more catalog-style view of the equipment behind our systems.
                   </h1>
                   <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">

@@ -92,12 +92,10 @@ function ProjectsPage() {
                   <span className="h-2.5 w-2.5 rounded-full bg-primary" />
                   Project portfolio
                 </div>
-                <h1 className="mt-6 max-w-3xl text-5xl font-bold tracking-tight text-slate-950 md:text-6xl">
-                  Work presented like real project stories, not just image blocks.
-                </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-                  See how our residential, commercial, and public-use installations are planned, delivered, and shaped around dependable energy performance.
-                </p>
+                <h2 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                  See how we deliver reliable energy projects for homes and public spaces.
+                </h2>
+                
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <NavLink
                     to="/contact"
