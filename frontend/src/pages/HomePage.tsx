@@ -10,12 +10,17 @@ import {
   FaLightbulb,
   FaPlugCircleBolt,
   FaQuoteLeft,
-  FaShieldHalved,
   FaSolarPanel,
   FaSun
 } from 'react-icons/fa6'
 import { NavLink } from 'react-router-dom'
 import HeroSection from '../components/HeroSection'
+import residentialImage from '../assets/residential.jpg'
+import hybridImage from '../assets/hybridsetup.jpg'
+import electricalImage from '../assets/electricianconfig.jpg'
+import rooftopImage from '../assets/rooftopsolar.jpg'
+import energyAuditImage from '../assets/energyaudits.jpg'
+import electricalIntegrationImage from '../assets/electricalintegration.jpg'
 import { services } from '../data/siteData'
 
 const serviceIcons: Record<(typeof services)[number]['title'], IconType> = {
@@ -27,29 +32,25 @@ const serviceIcons: Record<(typeof services)[number]['title'], IconType> = {
   'Energy Audits': FaChartLine
 }
 
-const highlights = [
-  {
-    title: 'Engineering-led execution',
-    desc: 'From load assessment to commissioning, every installation is planned for performance and long-term reliability.',
-    icon: FaBolt
-  },
-  {
-    title: 'Cleaner, lower-cost energy',
-    desc: 'Reduce grid dependence and recurring fuel costs with efficient solar and backup system design.',
-    icon: FaLeaf
-  },
-  {
-    title: 'Support beyond handover',
-    desc: 'We stay involved with maintenance, troubleshooting, and practical guidance after deployment.',
-    icon: FaShieldHalved
-  }
-] as const
-
 const trustStats = [
   { value: '50+', label: 'Installations and energy upgrades delivered' },
   { value: '24/7', label: 'Support mindset for mission-critical power' },
   { value: '100%', label: 'Focus on safe, standards-compliant execution' }
 ] as const
+
+const quickOverviewServices = services.filter(
+  (service) =>
+    service.title === 'Residential & Commercial' ||
+    service.title === 'Hybrid & Off-Grid' ||
+    service.title === 'Electrical Wiring'
+)
+
+const additionalServices = services.filter(
+  (service) =>
+    service.title !== 'Residential & Commercial' &&
+    service.title !== 'Hybrid & Off-Grid' &&
+    service.title !== 'Electrical Wiring'
+)
 
 const serviceImages: Record<(typeof services)[number]['title'], { src: string; alt: string }> = {
   'Solar Street Light': {
@@ -57,23 +58,23 @@ const serviceImages: Record<(typeof services)[number]['title'], { src: string; a
     alt: 'Solar-powered street light against a blue sky'
   },
   'Residential & Commercial': {
-    src: 'https://unsplash.com/photos/z5Bx77zxCDI/download?force=true&w=1200',
+    src: residentialImage,
     alt: 'Technician installing solar panels on a roof'
   },
   'Hybrid & Off-Grid': {
-    src: 'https://unsplash.com/photos/loAV8Aq0KdQ/download?force=true&w=1200',
+    src: hybridImage,
     alt: 'Engineer working on solar power electrical equipment'
   },
   'Electrical Wiring': {
-    src: 'https://unsplash.com/photos/loAV8Aq0KdQ/download?force=true&w=1200',
+    src: electricalImage,
     alt: 'Electrical engineer inspecting renewable energy equipment'
   },
   'Inverter Systems': {
-    src: 'https://unsplash.com/photos/loAV8Aq0KdQ/download?force=true&w=1200',
+    src: electricalImage,
     alt: 'Electrical technician configuring inverter and power systems'
   },
   'Energy Audits': {
-    src: 'https://unsplash.com/photos/z5Bx77zxCDI/download?force=true&w=1200',
+    src: energyAuditImage,
     alt: 'Solar installation being reviewed for performance and planning'
   }
 }
@@ -109,7 +110,7 @@ const projectShowcase = [
   {
     title: 'Residential rooftops',
     desc: 'Clean power systems designed for stable home energy, efficient storage, and everyday comfort.',
-    image: 'https://unsplash.com/photos/z5Bx77zxCDI/download?force=true&w=1400',
+    image: rooftopImage,
     alt: 'Worker installing rooftop solar panels'
   },
   {
@@ -121,7 +122,7 @@ const projectShowcase = [
   {
     title: 'Electrical integration',
     desc: 'Inverter, battery, and wiring setups that connect renewable energy into dependable real-world systems.',
-    image: 'https://unsplash.com/photos/loAV8Aq0KdQ/download?force=true&w=1400',
+    image: electricalIntegrationImage,
     alt: 'Engineer configuring solar and electrical systems'
   }
 ] as const
@@ -151,40 +152,61 @@ function HomePage() {
 
       <section className="relative py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 items-start">
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                Modern solar and electrical delivery
+                What we do at a glance
               </div>
               <div className="mt-6 max-w-2xl">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-950">
-                  Smart energy systems built for everyday performance.
+                  See our core energy solutions immediately.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-slate-600">
-                  We design and deploy clean, reliable power systems for homes, businesses, and public infrastructure with a focus on durability, efficiency, and support.
+                  From rooftop solar to hybrid backup and electrical integration, visitors can now see the kind of work we deliver before they scroll further.
                 </p>
               </div>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
-              {trustStats.map((stat) => (
-                <div key={stat.label} className="rounded-3xl bg-slate-900 px-6 py-6 text-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
-                  <div className="text-3xl font-bold text-primary">{stat.value}</div>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+            <NavLink to="/services" className="inline-flex items-center gap-2 self-start rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-emerald-300 hover:text-emerald-500">
+              Explore services <FaArrowRight aria-hidden="true" />
+            </NavLink>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {highlights.map((item) => (
-              <div key={item.title} className="group rounded-4xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-2xl text-emerald-500 transition-transform duration-500 group-hover:scale-110">
-                  <item.icon aria-hidden="true" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-950 transition-colors group-hover:text-emerald-500">{item.title}</h3>
-                <p className="mt-4 text-slate-600 leading-relaxed">{item.desc}</p>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {quickOverviewServices.map((service) => {
+              const ServiceIcon = serviceIcons[service.title]
+              const serviceImage = serviceImages[service.title]
+
+              return (
+                <article key={service.title} className="group overflow-hidden rounded-4xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_24px_60px_rgba(15,23,42,0.1)]">
+                  <div className="relative h-72 overflow-hidden">
+                    <img
+                      src={serviceImage.src}
+                      alt={serviceImage.alt}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+                    <div className="absolute left-6 top-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/90 text-2xl text-emerald-500 shadow-lg backdrop-blur">
+                      <ServiceIcon aria-hidden="true" />
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                      <h3 className="text-2xl font-bold">{service.title}</h3>
+                      <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-200">{service.description}</p>
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {trustStats.map((stat) => (
+              <div key={stat.label} className="rounded-3xl border border-slate-200 bg-white px-6 py-6 shadow-sm">
+                <div className="text-3xl font-bold text-emerald-500">{stat.value}</div>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -195,10 +217,10 @@ function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-14">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-500">What we do</p>
-              <h2 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">Solutions designed around real energy needs.</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-500">More solutions</p>
+              <h2 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">More ways we support your power needs.</h2>
               <p className="mt-4 max-w-2xl text-slate-600">
-                From rooftop solar to public lighting and integrated backup systems, our work combines technical planning with a modern installation experience.
+                From public lighting to inverter setup and energy audits, our work combines technical planning with a modern installation experience.
               </p>
             </div>
             <NavLink to="/services" className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-emerald-300 hover:text-emerald-500">
@@ -207,7 +229,7 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 3).map((service) => {
+            {additionalServices.map((service) => {
               const ServiceIcon = serviceIcons[service.title]
               const serviceImage = serviceImages[service.title]
 
@@ -246,7 +268,7 @@ function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
             <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-slate-900">
               <img
-                src="https://unsplash.com/photos/z5Bx77zxCDI/download?force=true&w=1400"
+                src={residentialImage}
                 alt="Solar technician working on a rooftop installation"
                 className="h-full min-h-[420px] w-full object-cover"
                 loading="lazy"
@@ -255,7 +277,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute left-6 right-6 bottom-6 rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-md">
-                <p className="text-sm uppercase tracking-[0.25em] text-emerald-300">Benefits of solar</p>
+                <p className="text-sm uppercase tracking-[0.25em] text-emerald-100">Benefits of solar</p>
                 <p className="mt-3 text-lg text-slate-100">
                   A well-designed system gives you more control over power availability, energy spending, and long-term operating efficiency.
                 </p>
