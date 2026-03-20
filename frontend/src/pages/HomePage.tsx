@@ -163,7 +163,7 @@ function HomePage() {
                   See our core energy solutions immediately.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-slate-600">
-                  From rooftop solar to hybrid backup and electrical integration, visitors can now see the kind of work we deliver before they scroll further.
+                  From rooftop solar to hybrid backup and electrical integration.
                 </p>
               </div>
             </div>
