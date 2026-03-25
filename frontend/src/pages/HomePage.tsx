@@ -16,11 +16,15 @@ import {
 import { NavLink } from 'react-router-dom'
 import HeroSection from '../components/HeroSection'
 import residentialImage from '../assets/residential.jpg'
-import hybridImage from '../assets/hybridsetup.jpg'
+// import hybridImage from '../assets/hybridsetup.jpg'
 import electricalImage from '../assets/electricianconfig.jpg'
 import rooftopImage from '../assets/rooftopsolar.jpg'
 import energyAuditImage from '../assets/energyaudits.jpg'
 import electricalIntegrationImage from '../assets/electricalintegration.jpg'
+import offgridImage from '../assets/offgrid.jpg'
+import inverterImage from '../assets/invertersystem.jpg'
+import solarBenefit from '../assets/solarbenefit.jpg'
+import electricianImage from '../assets/electrician.jpg'
 import { services } from '../data/siteData'
 
 const serviceIcons: Record<(typeof services)[number]['title'], IconType> = {
@@ -62,7 +66,7 @@ const serviceImages: Record<(typeof services)[number]['title'], { src: string; a
     alt: 'Technician installing solar panels on a roof'
   },
   'Hybrid & Off-Grid': {
-    src: hybridImage,
+    src: offgridImage,
     alt: 'Engineer working on solar power electrical equipment'
   },
   'Electrical Wiring': {
@@ -70,7 +74,7 @@ const serviceImages: Record<(typeof services)[number]['title'], { src: string; a
     alt: 'Electrical engineer inspecting renewable energy equipment'
   },
   'Inverter Systems': {
-    src: electricalImage,
+    src: inverterImage,
     alt: 'Electrical technician configuring inverter and power systems'
   },
   'Energy Audits': {
@@ -122,7 +126,7 @@ const projectShowcase = [
   {
     title: 'Electrical integration',
     desc: 'Inverter, battery, and wiring setups that connect renewable energy into dependable real-world systems.',
-    image: electricalIntegrationImage,
+    image: electricianImage,
     alt: 'Engineer configuring solar and electrical systems'
   }
 ] as const
@@ -268,7 +272,7 @@ function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
             <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-slate-900">
               <img
-                src={residentialImage}
+                src={solarBenefit}
                 alt="Solar technician working on a rooftop installation"
                 className="h-full min-h-[420px] w-full object-cover"
                 loading="lazy"
